@@ -1,0 +1,36 @@
+﻿@model List<SimpsonsCharacters.Controllers.SimpsonCharacter>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simpsons Characters</title>
+    <style>
+        .character-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .character-card h3 {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simpsons Characters</h1>
+
+    <form method="get">
+        <input type="text" name="searchTerm" placeholder="Ingrese un término de búsqueda" />
+        <button type="submit">Buscar</button>
+    </form>
+
+    @foreach (var character in Model)
+    {
+        <div class="character-card">
+            <h3>@character.Name</h3>
+            <p>@character.genre</p>
+        </div>
+    }
+</body>
+</html>
