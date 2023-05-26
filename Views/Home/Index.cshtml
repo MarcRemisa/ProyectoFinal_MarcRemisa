@@ -8,10 +8,10 @@
 <body class="fondo">
     <h1 class="nombre">Simpsons Characters</h1>
 
-    @* <form method="get">
-        <input type="text" name="searchTerm" placeholder="Ingrese un término de búsqueda" />
-        <button type="submit">Buscar</button>
-    </form> *@
+    <form method="get" action="@Url.Action("Index", "Home")">
+        <input type="text" name="searchTerm" placeholder="Enter character name" />
+        <button type="submit">Search</button>
+    </form>
 
     @foreach (var character in Model)
     {
