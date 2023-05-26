@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +27,8 @@ namespace SimpsonsCharacters.Controllers
     public class SimpsonCharacter
     {
         public string Name { get; set; }
-        public string genre { get; set; }
+        public string gender { get; set; }
+
+        public string id { get; set; }
     }
 }

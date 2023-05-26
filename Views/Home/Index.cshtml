@@ -4,32 +4,25 @@
 <html>
 <head>
     <title>Simpsons Characters</title>
-    <style>
-        .character-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-        }
-
-        .character-card h3 {
-            margin-top: 10px;
-        }
-    </style>
 </head>
-<body>
-    <h1>Simpsons Characters</h1>
+<body class="fondo">
+    <h1 class="nombre">Simpsons Characters</h1>
 
-    <form method="get">
+    @* <form method="get">
         <input type="text" name="searchTerm" placeholder="Ingrese un término de búsqueda" />
         <button type="submit">Buscar</button>
-    </form>
+    </form> *@
 
     @foreach (var character in Model)
     {
         <div class="character-card">
+            <h1>@character.id</h1>
+        </div>
+        <div class="character-card">
             <h3>@character.Name</h3>
-            <p>@character.genre</p>
+        </div>
+        <div class="character-card">
+            <h4>@character.gender</h4>
         </div>
     }
 </body>
