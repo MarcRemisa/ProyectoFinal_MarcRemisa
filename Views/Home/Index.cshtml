@@ -1,4 +1,4 @@
-﻿@model List<SimpsonsCharacters.Controllers.SimpsonCharacter>
+﻿@model List<SimpsonCharacter>
 
 <!DOCTYPE html>
 <html>
@@ -6,24 +6,36 @@
     <title>Simpsons Characters</title>
 </head>
 <body class="fondo">
-    <h1 class="nombre">Simpsons Characters</h1>
+    <img class="imagen" src="https://image.tmdb.org/t/p/original/kyE83l2648IXArRQOOQJlirQ76b.png" alt="Simpsons">
 
     <form method="get" action="@Url.Action("Index", "Home")">
         <input type="text" name="searchTerm" placeholder="Enter character name" />
-        <button type="submit">Search</button>
+        <button type="submit" name="searchButton">Buscar</button>
     </form>
 
-    @foreach (var character in Model)
-    {
-        <div class="character-card">
-            <h1>@character.id</h1>
-        </div>
-        <div class="character-card">
-            <h3>@character.Name</h3>
-        </div>
-        <div class="character-card">
-            <h4>@character.gender</h4>
-        </div>
-    }
+    <div class="character-grid">
+        @if (Model.Count > 0)
+        {
+            foreach (var character in Model)
+            {
+                <div class="character-card zoom-image">
+                    <img src="@character.Imagen" alt="@character.Nombre"/>
+                    <div>
+                        <strong>Nombre:</strong> @character.Nombre
+                    </div>
+                    <div>
+                        <strong>Genero:</strong> @character.Genero
+                    </div>
+                    <div>
+                        <strong>Ocupacion:</strong> @character.Ocupacion
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No characters found.</p>
+        }
+    </div>
 </body>
 </html>
